@@ -9,6 +9,7 @@ import { ChatSession, Message, AppSettings, DEFAULT_SETTINGS } from './types';
 import { generateChatResponse, ModelType } from './lib/gemini';
 import { useAuth } from './lib/AuthContext';
 import { Toaster, toast } from 'sonner';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 export default function App() {
   const { user, loading } = useAuth();
@@ -350,6 +351,7 @@ export default function App() {
   return (
     <div className="flex h-screen w-full bg-[#F0F4F9] dark:bg-[#131314] overflow-hidden font-sans transition-colors duration-300">
       <Toaster position="top-center" />
+      <SpeedInsights />
       <Sidebar 
         isOpen={isSidebarOpen}
         onClose={() => setIsSidebarOpen(false)}
